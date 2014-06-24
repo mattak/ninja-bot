@@ -1,0 +1,11 @@
+name:
+    'ninja'
+irc:
+    server:
+        'irc.example.local'
+    rooms:
+        '#room1'
+    nick:
+        'ninja'
+    unflood:
+        'false'

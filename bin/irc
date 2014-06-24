@@ -1,0 +1,14 @@
+#!/usr/bin/env node
+CSON = require('cson');
+util = require('util');
+config = CSON.parseFileSync('config/irc.cson', function(err, obj){});
+
+ENV_OPTION =
+    'HUBOT_IRC_SERVER="'     + config['irc']['server']  + '"'
+    + ' HUBOT_IRC_ROOMS="'   + config['irc']['rooms']   + '"'
+    + ' HUBOT_IRC_NICK="'    + config['irc']['nick']    + '"'
+    + ' HUBOT_IRC_UNFLOOD="' + config['irc']['unflood'] + '"'
+    ;
+
+var command = util.format("%s bin/hubot -a irc --name %s", ENV_OPTION, config['name']);
+console.log(command);
