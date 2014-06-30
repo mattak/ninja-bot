@@ -8,6 +8,7 @@ ENV_OPTION =
     + ' HUBOT_IRC_ROOMS="'   + config['irc']['rooms']   + '"'
     + ' HUBOT_IRC_NICK="'    + config['irc']['nick']    + '"'
     + ' HUBOT_IRC_UNFLOOD="' + config['irc']['unflood'] + '"'
+    + ' HUBOT_IRC_SEND_NOTICE_MODE="true"'
     ;
 
 var command = util.format("%s bin/hubot -a irc --name %s", ENV_OPTION, config['name']);
