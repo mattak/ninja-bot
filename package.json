@@ -23,6 +23,7 @@
     "cson": "^1.6.0",
     "hubot": ">= 2.6.0 < 3.0.0",
     "hubot-ascii-faces": "^1.0.2",
+    "hubot-cron": "^0.2.4",
     "hubot-irc": "^0.2.7",
     "hubot-scripts": ">= 2.5.0 < 3.0.0",
     "request": "^2.36.0",
