@@ -7,14 +7,30 @@
 #   hubot mustache me <url> - Adds a mustache to the specified URL.
 #   hubot mustache me <query> - Searches Google Images for the specified query and mustaches it.
 
+searchAndIncrements = (robot, msg, word) ->
+  username = msg.message.user.name
+  unless robot.brain.data['imagesearch']
+    robot.brain.data['imagesearch'] = {}
+  unless robot.brain.data['imagesearch'][username]
+    robot.brain.data['imagesearch'][username] = {}
+  unless robot.brain.data['imagesearch'][username][word]
+    robot.brain.data['imagesearch'][username][word] = 0
+  robot.brain.data['imagesearch'][username][word]++
+  robot.brain.save()
+  msg.send "東京都の#{ username.substr(0, 1).toUpperCase() }さん: #{ robot.brain.data['imagesearch'][username][word] }票"
+
 module.exports = (robot) ->
   robot.respond /(image|img)( me)? (.*)/i, (msg) ->
+    word = msg.match[3]
     imageMe msg, msg.match[3], (url) ->
       msg.send url
+      searchAndIncrements robot, msg, word
 
   robot.respond /animate( me)? (.*)/i, (msg) ->
+    word = msg.match[2]
     imageMe msg, msg.match[2], true, (url) ->
       msg.send url
+      searchAndIncrements robot, msg, word
 
   robot.respond /(?:mo?u)?sta(?:s|c)he?(?: me)? (.*)/i, (msg) ->
     type = Math.floor(Math.random() * 6)
