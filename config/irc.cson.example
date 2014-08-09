@@ -9,3 +9,6 @@ irc:
         'ninja'
     unflood:
         'false'
+api:
+    zoi:
+        'your api url'
