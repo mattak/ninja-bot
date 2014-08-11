@@ -12,7 +12,10 @@ request = require("request")
 respondZoi = (msg) ->
   request KIMONO_URL, (err, response, body) ->
     zoi = JSON.parse(body)
-    msg.send "#{ zoi['results']['randoms'][0]['img'] }"
+    img = zoi['results']['randoms'][0]['img']
+    if img
+      img = img.replace(/:large$/, "")
+    msg.send "#{ img }"
 
 module.exports = (robot) ->
   robot.respond /zoi$/i, (msg) ->
