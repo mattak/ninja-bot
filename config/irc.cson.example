@@ -9,6 +9,13 @@ irc:
         'ninja'
     unflood:
         'false'
+slack:
+    token:
+        'your-slack-token'
+    team:
+        'your-team'
+    user:
+        'your-user-name'
 api:
     zoi:
         'your api url'

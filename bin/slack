@@ -1,0 +1,14 @@
+#!/usr/bin/env node
+CSON = require('cson');
+util = require('util');
+config = CSON.parseFileSync('config/irc.cson', function(err, obj){});
+
+ENV_OPTION =
+    'HUBOT_SLACK_TOKEN="'      + config['slack']['token']  + '"'
+    + ' HUBOT_SLACK_TEAM="'    + config['slack']['team']   + '"'
+    + ' HUBOT_SLACK_CHANNELS="'+ config['slack']['channels'] +'"'
+    + ' HUBOT_SLACK_BOTNAME="' + config['name']  + '"'
+    ;
+
+var command = util.format("%s bin/hubot -a slack --name %s", ENV_OPTION, config['name']);
+console.log(command);

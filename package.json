@@ -27,7 +27,8 @@
     "hubot-irc": "^0.2.7",
     "hubot-scripts": ">= 2.5.0 < 3.0.0",
     "request": "^2.36.0",
-    "underscore": "^1.6.0"
+    "underscore": "^1.6.0",
+    "hubot-slack": "~2.2.0"
   },
   "engines": {
     "node": ">= 0.8.x",
