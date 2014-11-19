@@ -16,6 +16,3 @@ slack:
         'your-team'
     user:
         'your-user-name'
-api:
-    zoi:
-        'your api url'
